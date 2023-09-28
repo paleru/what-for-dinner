@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import Autosuggest from 'react-autosuggest';
-import axios from 'axios';
+import api from '../api';
 import '../styling/SearchBar.css';
 
 function SearchBar({ onSubmit }) {
@@ -13,8 +13,8 @@ function SearchBar({ onSubmit }) {
     // Fetch ingredient suggestions here
     async function fetchIngredientSuggestions() {
       try {
-        const response = await axios.get(
-          'https://api.spoonacular.com/food/ingredients/autocomplete',
+        const response = await api.get(
+          '/food/ingredients/autocomplete',
           {
             params: {
               apiKey: 'c1573df744bd4d0f8e0571ffddef0f5e',

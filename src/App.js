@@ -1,5 +1,5 @@
 import SearchBar from "./components/SearchBar";
-import searchRecipes from "./components/DataFetcher";
+import searchRecipes from "./components/RecipeFetcher";
 import { useState } from "react";
 import RecipeList from "./components/RecipeList";
 
