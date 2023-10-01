@@ -8,6 +8,7 @@ const searchRecipes = async (ingredients) => {
       params: {
         ingredients: ingredientString,
         ignorePantry: true,
+        number: 12,
       },
     });
 

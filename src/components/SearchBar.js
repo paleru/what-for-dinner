@@ -2,6 +2,10 @@ import { useState, useEffect } from 'react';
 import Autosuggest from 'react-autosuggest';
 import api from '../api';
 import '../styling/SearchBar.css';
+import Button from '@mui/material/Button';
+import Typography from '@mui/material/Typography';
+import Container from '@mui/material/Container';
+import Box from '@mui/material/Box';
 
 function SearchBar({ onSubmit }) {
   const [term, setTerm] = useState('');
@@ -10,7 +14,6 @@ function SearchBar({ onSubmit }) {
   const [selectedIngredients, setSelectedIngredients] = useState([]);
 
   useEffect(() => {
-    // Fetch ingredient suggestions here
     async function fetchIngredientSuggestions() {
       try {
         const response = await api.get(
@@ -28,7 +31,7 @@ function SearchBar({ onSubmit }) {
       }
     }
 
-    // Fetch suggestions when the term changes
+    // Fetch suggestions when search term changes
     fetchIngredientSuggestions();
   }, [term]);
 
@@ -61,7 +64,7 @@ function SearchBar({ onSubmit }) {
   const handleIngredientSelect = () => {
     if (term && !selectedIngredients.includes(term)) {
       setSelectedIngredients([...selectedIngredients, term]);
-      setTerm(''); // Clear the input field after adding
+      setTerm(''); // Clears input field after adding
     }
   };
 
@@ -76,26 +79,15 @@ function SearchBar({ onSubmit }) {
     placeholder: 'Enter an ingredient',
     value: term,
     onChange: handleChange,
+    className: 'autosuggest-input',
   };
 
   return (
-    <div className="search-bar">
+    <Container maxWidth="lg" className="search-bar-container" align="center">
       <form onSubmit={handleFormSubmit}>
-        <div className="selected-ingredients">
-          {selectedIngredients.map((ingredient) => (
-            <div key={ingredient} className="selected-ingredient">
-              {ingredient}
-              <button
-                type="button"
-                onClick={() => handleIngredientRemove(ingredient)}
-              >
-                Remove
-              </button>
-            </div>
-          ))}
-        </div>
-
-        <div className="ingredient-input">
+        <Box display="flex" alignItems="center" flexDirection="column" pb={2}>
+        <Typography variant="body1" sx={{ fontSize: '16px', fontWeight: 'bold' }}>
+        </Typography>
           <Autosuggest
             suggestions={suggestions}
             onSuggestionsFetchRequested={onSuggestionsFetchRequested}
@@ -103,18 +95,34 @@ function SearchBar({ onSubmit }) {
             getSuggestionValue={getSuggestionValue}
             renderSuggestion={renderSuggestion}
             inputProps={inputProps}
+            highlightFirstSuggestion={true}
           />
-          <button
-            type="button"
+        </Box>
+
+        <Box display="flex" alignItems="center" justifyContent="center" flexDirection="row" gap={2}>
+          <Button
+            variant="contained"
             onClick={handleIngredientSelect}
             disabled={term.trim() === '' || selectedIngredients.includes(term)}
           >
             Add Ingredient
-          </button>
-        </div>
-        <button type="submit">Search</button>
+          </Button>
+          <Button variant="outlined" type="submit">
+            Search
+          </Button>
+        </Box>
+
+        <Box display="flex" alignItems="center" flexWrap="wrap" justifyContent="center">
+          {selectedIngredients.map((ingredient) => (
+            <div key={ingredient}>
+              <Button onClick={() => handleIngredientRemove(ingredient)}>
+              {ingredient}
+              </Button>
+            </div>
+          ))}
+        </Box>
       </form>
-    </div>
+    </Container>
   );
 }
 

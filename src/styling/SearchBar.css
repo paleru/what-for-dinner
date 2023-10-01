@@ -1,24 +1,17 @@
-.search-bar {
-    border: 1px solid lightgray;
-    border-radius: 5px;
-    padding: 10px;
-    width: 30%;
-    
-}
-
-.search-bar form {
-    display: flex;
-    flex-direction: column;
-}
-
 .react-autosuggest__suggestions-container {
     position: absolute;
     background-color: #fff;
     border: 1px solid #ccc;
-    max-height: 150px;
+    max-height: 250px;
     overflow-y: auto;
     z-index: 2;
   }
+
+  .autosuggest-input {
+  font-size: 22px;
+  width: 100%;
+  height: 40px;
+}
 
   
 .react-autosuggest__suggestions-list {
