@@ -93,7 +93,8 @@ function RecipeCard({ recipe }) {
         <CardContent>
           <Typography paragraph>Method:</Typography>
           <Typography paragraph>
-            Heat 1/2 cup of the broth in a pot until simmering, add saffron and set
+            * Will remove, only here to test expanding card *
+            SHeat 1/2 cup of the broth in a pot until simmering, add saffron and set
             aside for 10 minutes.
           </Typography>
           <Typography paragraph>

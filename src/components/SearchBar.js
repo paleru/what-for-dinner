@@ -87,8 +87,7 @@ function SearchBar({ onSubmit }) {
       <form onSubmit={handleFormSubmit}>
         <Box display="flex" alignItems="center" flexDirection="column" pb={2}>
         <Typography variant="body1" sx={{ fontSize: '16px', fontWeight: 'bold' }}>
-        </Typography>
-          <Autosuggest
+        <Autosuggest
             suggestions={suggestions}
             onSuggestionsFetchRequested={onSuggestionsFetchRequested}
             onSuggestionsClearRequested={onSuggestionsClearRequested}
@@ -97,6 +96,8 @@ function SearchBar({ onSubmit }) {
             inputProps={inputProps}
             highlightFirstSuggestion={true}
           />
+        </Typography>
+
         </Box>
 
         <Box display="flex" alignItems="center" justifyContent="center" flexDirection="row" gap={2}>

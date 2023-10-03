@@ -16,15 +16,6 @@ function App() {
   };
 
   return (
-/*     <Container>
-      <Box
-        sx={{
-          width: '100%',
-          bgcolor: 'background.paper',
-          pt: 8,
-          pb: 6,
-        }}
-      > */
           <Container maxWidth="lg">
             <Typography
               component="h1"
@@ -48,9 +39,6 @@ function App() {
             </Stack>
             <RecipeList recipes={recipes} />
           </Container>
-        /* </Box> */
-      
-    /* </Container> */
   );
 }
 
