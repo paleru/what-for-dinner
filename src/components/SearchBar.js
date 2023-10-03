@@ -97,9 +97,7 @@ function SearchBar({ onSubmit }) {
             highlightFirstSuggestion={true}
           />
         </Typography>
-
         </Box>
-
         <Box display="flex" alignItems="center" justifyContent="center" flexDirection="row" gap={2}>
           <Button
             variant="contained"
