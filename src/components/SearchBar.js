@@ -6,6 +6,7 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import Box from '@mui/material/Box';
+import { Stack, Divider } from '@mui/material';
 
 function SearchBar({ onSubmit }) {
   const [term, setTerm] = useState('');
@@ -85,8 +86,8 @@ function SearchBar({ onSubmit }) {
   return (
     <Container maxWidth="lg" className="search-bar-container" align="center">
       <form onSubmit={handleFormSubmit}>
-        <Box display="flex" alignItems="center" flexDirection="column" pb={2}>
-        <Typography variant="body1" sx={{ fontSize: '16px', fontWeight: 'bold' }}>
+        <Box display="flex" alignItems="center" flexDirection="column" mb={2}>
+        <Typography component={'span'} variant="body1" sx={{ fontSize: '16px', fontWeight: 'bold' }}>
         <Autosuggest
             suggestions={suggestions}
             onSuggestionsFetchRequested={onSuggestionsFetchRequested}
@@ -111,7 +112,7 @@ function SearchBar({ onSubmit }) {
           </Button>
         </Box>
 
-        <Box display="flex" alignItems="center" flexWrap="wrap" justifyContent="center">
+        <Stack display="flex" alignItems="center" flexWrap="wrap" pt={1} justifyContent="center" spacing={2} direction="row" divider={<Divider orientation="vertical" flexItem />}>
           {selectedIngredients.map((ingredient) => (
             <div key={ingredient}>
               <Button onClick={() => handleIngredientRemove(ingredient)}>
@@ -119,7 +120,7 @@ function SearchBar({ onSubmit }) {
               </Button>
             </div>
           ))}
-        </Box>
+        </Stack>
       </form>
     </Container>
   );

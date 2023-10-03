@@ -30,7 +30,7 @@ function App() {
               Start by typing in an ingredient you've got laying around
             </Typography>
             <Stack
-              sx={{ pt: 4 }}
+              sx={{ mt: 2 }}
               direction="row"
               spacing={2}
               justifyContent="center"
