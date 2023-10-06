@@ -9,11 +9,11 @@ import Collapse from '@mui/material/Collapse';
 import Avatar from '@mui/material/Avatar';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
-import { lightGreen } from '@mui/material/colors';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import ShareIcon from '@mui/icons-material/Share';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
+import { green } from '@mui/material/colors';
 
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props;
@@ -38,9 +38,9 @@ function RecipeCard({ recipe }) {
       <CardHeader
         sx={{ height: '80px', overflow: 'auto' }}
         avatar={
-          <Avatar sx={{ bgcolor: lightGreen[500] }} aria-label="recipe">
-            P
-          </Avatar>
+            <Avatar sx={{ bgcolor: green[800] }} aria-label="recipe">
+              P
+            </Avatar>
         }
         action={
           <IconButton aria-label="settings">
@@ -49,16 +49,16 @@ function RecipeCard({ recipe }) {
         }
 
         title={
-<Typography
-    sx={{
-        display: '-webkit-box',
-        overflow: 'hidden',
-        WebkitBoxOrient: 'vertical',
-        WebkitLineClamp: 3  ,
-    }}
-    variant="body1">
-    {recipe.title}
-</Typography>
+          <Typography
+            sx={{
+              display: '-webkit-box',
+              overflow: 'hidden',
+              WebkitBoxOrient: 'vertical',
+              WebkitLineClamp: 3,
+            }}
+            variant="body1">
+            {recipe.title}
+          </Typography>
         }
       />
       <CardMedia
@@ -69,7 +69,7 @@ function RecipeCard({ recipe }) {
       />
       <CardContent>
         <Typography variant="body2" color="text.secondary">
-            Recipe description goes here
+          Recipe description goes here
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
