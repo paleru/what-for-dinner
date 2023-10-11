@@ -4,7 +4,7 @@ import React from 'react';
 function AddRecipe() {
   return (
     <div>
-      User    
+      Add Recipe    
     </div>
   );
 }
