@@ -1,6 +1,5 @@
 import { useState } from "react";
 import Typography from '@mui/material/Typography';
-//import * as React from 'react';
 import CssBaseline from '@mui/material/CssBaseline';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -8,12 +7,9 @@ import Divider from '@mui/material/Divider';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
-import { AccountCircle, Logout } from "@mui/icons-material";
 import { Routes, Route, Link } from 'react-router-dom';
 import { createTheme } from "@mui/material";
-import Button from '@mui/material/Button';
 import List from "@mui/material/List";
-import { ThemeProvider } from "@emotion/react";
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
@@ -61,7 +57,7 @@ function App() {
       <AppBar position="absolute" open={open}>
         <Toolbar
           sx={{
-            pr: '24px', // keep right padding when drawer closed
+            pr: '24px', // keeps right padding when drawer closed
           }}
         >
           <IconButton
@@ -85,11 +81,6 @@ function App() {
           >
             Chef Pål
           </Typography>
-          <ThemeProvider theme={theme}>
-            <Button variant="contained" color="secondary" startIcon={<Logout />}>
-              Logout
-            </Button>
-          </ThemeProvider>
         </Toolbar>
       </AppBar>
       <Drawer variant="permanent" open={open}>
@@ -119,12 +110,12 @@ function App() {
             </ListItemIcon>
             <ListItemText primary="Add recipe" />
           </ListItemButton>
-          <ListItemButton component={Link} to="/user-recipes">
+{/*           <ListItemButton component={Link} to="/user-recipes">
             <ListItemIcon>
               <FoodBankIcon />
             </ListItemIcon>
             <ListItemText primary="My recipes" />
-          </ListItemButton>
+          </ListItemButton> */}
           <ListItemButton component={Link} to="/profile">
             <ListItemIcon>
               <AccountBoxIcon />
@@ -146,7 +137,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home handleSubmit={handleSubmit} recipes={recipes} />} />
           <Route path="/add-recipe" element={<AddRecipe />} />
-          <Route path="/user-recipes" element={<UserRecipes />} />
+          {/* <Route path="/user-recipes" element={<UserRecipes />} /> */}
           <Route path="/profile" element={<UserProfile />} />
         </Routes>
       </Box>
